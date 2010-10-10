@@ -1,4 +1,4 @@
-// Fast Shift by nixxo (versione 1.0 ;-))
+// Fast Shift by nixxo (versione 1.1 ;-))
 
 // ---------------------------------------------------------------------------
 // Fast Shift Indietro
@@ -12,11 +12,15 @@ JSAction_Fast_Shift_Indietro = {
 
     if(VSSCore.GetSubCount() > 0) {
       var sub = VSSCore.GetFirstSelected();
-      /*controllo overlap*/
-      var subP = VSSCore.GetPrevious(sub);
-      if ((sub.Start - subP.Stop) < shift )
-        subP.Stop = subP.Stop - shift;
-      /*fine controllo overlap*/
+      //controllo se è selezionato il primo sottotitolo
+      if (sub.Index > 1) {
+        //controllo overlap
+        var subP = VSSCore.GetPrevious(sub);
+          if ((sub.Start - subP.Stop) < shift )
+            subP.Stop = subP.Stop - shift;
+        //fine controllo overlap
+      }
+      
       while (sub != null) {
         sub.Start = sub.Start - shift;
         sub.Stop = sub.Stop - shift;
@@ -29,7 +33,7 @@ JSAction_Fast_Shift_Indietro = {
 VSSCore.RegisterJavascriptAction('JSAction_Fast_Shift_Indietro', 'FastShift Indietro', 'Ctrl+F7');
 
 // ---------------------------------------------------------------------------
-// Fast Shift Avanti
+// Fast Shift Avanti prova
 // ---------------------------------------------------------------------------
 
 JSAction_Fast_Shift_Avanti = {
