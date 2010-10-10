@@ -5,3 +5,6 @@ Plugin che semplifica lo shift avanti o indietro dei sottotitoli da quello selez
 Changelog:
 v1.0: versione iniziale
 v1.1: aggiunto controllo primo sub
+v2.0: aggiunto doppio shift (piccolo / grande)
+      aggiunta lettura dei parametri da plugin
+      tolte scorciatoie da tastiera di default
